@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let ageWomen;
+        let ageMen;
+        let chislo1;
+        let chislo2;
+        ageMen=prompt("Введи свой возраст:", "1-100");
+        ageWomen=prompt("Введи возраст своей девушки", "1-100");
+        
+        (+ageMen<1) ? alert("Обманщик") : (+ageMen>100) ? alert("Больше 100 лет не живут.") : 
+        (typeof(ageMen) =="string") ? alert("Необходмо ввести число...") : "";
+        alert(+ageMen);
+
+
+        // Проверочные alert
+        // alert(ageMen);
+        // alert(ageWomen);
+        // alert(typeof(ageMen));
+        // alert(typeof(ageWomen));
+
+        if (+ageMen>+ageWomen) {
+            alert("Вы старше своей девушки");
+        } else if (+ageMen<+ageWomen){
+            alert("Вы младше своей девушки");
+        } else if (+ageMen==+ageWomen) {
+            alert("Вы ровесники");
+        }
+        alert(typeof +ageMen);
+        alert(typeof +ageWomen);
+    </script>
+  </body>
+</html>

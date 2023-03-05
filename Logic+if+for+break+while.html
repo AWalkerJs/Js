@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a=0;
+      let b=3;
+      let c=6;
+      let d=9;
+      let result;
+      let osmotr = 1;
+      let test = 1;
+
+    //   alert(test ?? "test ne opredelen");
+    //   alert(osmotr ?? "osmotr opredelen");
+
+    outer: for (let i = 10; i > 6; i--) {
+        alert("1st Cicl chislo="+i);
+        for (let j = 0; j < 4; j++) {
+
+            alert(`Чисто вот такое ${i} , ${j}`); 
+            if (i==8) break outer;
+            
+    // let input = prompt(`Значение на координатах (${i},${j})`, '');
+
+    // Что если мы захотим перейти к Готово (ниже) прямо отсюда?
+
+        }
+    }
+
+    alert('Готово!');
+
+
+    let summa=0;
+
+    while(a!=10){
+        let osmotr=+prompt("Vvedi chislo",);
+        if (osmotr==100) continue;
+        summa+=osmotr;
+        a++;
+    }
+    alert("Summa chisel =" + summa);
+
+    // while(true){
+    //     let osmotr=+prompt("Vvedi chislo",);
+    //     if (osmotr==false) break;
+    //     summa+=osmotr;
+    // }
+    // alert("Summa chisel =" + summa);
+
+
+    //   for (let d=0; a<5 ; a++){
+    //     alert(test);
+    //     test++;
+    //   }
+
+    //   alert(d);
+
+    //   while (d>0 && osmotr!=2) {
+    //     alert(`В данный момент D = ${d}`);
+    //     d--;
+    //     if (d==5) {
+    //         osmotr++;
+    //     }
+    //   }
+
+    //   result = a || b;
+    //   alert(result);
+    //   result = c || d;
+    //   alert(result);
+
+    //   result = a && b;
+    //   alert(result);
+    //   result = c && d;
+    //   alert(result);
+
+    </script>
+  </body>
+</html>

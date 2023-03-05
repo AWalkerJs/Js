@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+class Animal {
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+  }
+  // ...
+}
+
+class Rabbit extends Animal {
+
+  constructor(name, earLength) {
+    super(name);
+    this.earLength = earLength;
+  }
+
+  // ...
+}
+
+// Не работает!
+let rabbit = new Rabbit("Белый кролик", 10); // Error: this is not defined.
+console.log(rabbit);
+
+
+
+
+
+
+// class User {
+
+// constructor(name) {
+//   // вызывает сеттер
+//   this.name = name;
+// }
+
+// get name() {
+//   return this._name;
+// }
+
+// set name(value) {
+//   if (value.length < 4) {
+//     alert("Имя слишком короткое.");
+//     return;
+//   }
+//   this._name = value;
+// }
+
+// }
+
+// let user = new User("Иван");
+// alert(user.name); // Иван
+
+// user = new User(""); // Имя слишком короткое.
+
+
+
+
+
+
+
+
+// class User {
+//   constructor(name,age,sex) {
+//     this.name = name;
+//     this.age = age;
+//     this.sex = sex;
+//   }
+//   sayName() {
+//     alert(this.name);
+//   }
+//   sayAge() {
+//     alert(this.age);
+//   }
+//   saySex() {
+//     alert(this.sex);
+//   }
+// }
+
+// let sasha = new User("Sasha", 27,"Male");
+// sasha.sayAge();
+// sasha.sayName();
+// sasha.saySex();
+
+
+
+
+
+
+
+
+
+// let animal = {
+//   eats: true,
+//   walk() {
+//     alert("Animal walk");
+//   }
+// };
+
+// let rabbit = {
+//   jumps: true,
+//   __proto__: animal
+// };
+
+// // walk взят из прототипа
+// rabbit.walk(); // Animal walk
+
+
+
+
+
+
+
+
+// let user = {
+//   get name() {
+//     return this.ololo;
+//   },
+
+//   set name(value) {
+//     if (value.length < 4) {
+//       alert("Имя слишком короткое, должно быть более 4 символов");
+//       return;
+//     }
+//     this.ololo = value;
+//   }
+// };
+
+// user.name = "Pete";
+// alert(user.name); // Pete
+
+// user.name = ""; // Имя слишком короткое...
+
+
+
+
+
+
+
+
+
+
+
+// function summator (a, b) {
+//   let summa = a + b;
+//   return summa;
+// }
+
+// function decoratorSummator (a, b) {
+//   let cache = new Map();
+
+//   return function() {
+
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+// function slow(x) {
+//   // здесь могут быть ресурсоёмкие вычисления
+//   alert(`ОСНОВНАЯ Called with ${x}`);
+//   return x + "йцу";
+// }
+
+// function cachingDecorator(slow) {
+//   let cache = new Map();
+
+//   return function(x) {
+//     if (cache.has(x)) {    // если кеш содержит такой x,
+//       return cache.get(x); // читаем из него результат
+//     }
+
+//     let result = slow(x); // иначе, вызываем функцию
+
+//     cache.set(x, result); // и кешируем (запоминаем) результат
+//     return result;
+//   };
+// }
+
+// slow = cachingDecorator(slow);
+
+// alert( slow(1) ); // slow(1) кешируем
+// alert( "Again: " + slow(1) ); // возвращаем из кеша
+
+// alert( slow(2) ); // slow(2) кешируем
+// alert( "Again: " + slow(2) ); // возвращаем из кеша
+
+
+
+
+
+
+
+
+// function getFunc() {
+//   let value = "test";
+
+//   let func = function() { alert(value); };
+
+//   return func;
+// }
+
+// getFunc()(); // "test", из лексического окружения функции getFunc
+
+
+
+
+
+// function sayHi() {
+//   alert("Hi");
+
+//   // давайте посчитаем, сколько вызовов мы сделали
+//   sayHi.counter++;
+// }
+// sayHi.counter = 0; // начальное значение
+
+// sayHi(); // Hi
+// sayHi(); // Hi
+// sayHi(); // Hi
+
+// alert( `Вызвана ${sayHi.counter} раза` ); // Вызвана 2 раза
+
+// alert (counter);
+
+
+
+
+// function ask(question, ...handlers) {
+//   let isYes = confirm(question);
+
+//   for(let handler of handlers) {
+//     if (handler.length == 0) {
+//       if (isYes) handler();
+//     } else {
+//       handler(isYes);
+//     }
+//   }
+
+// }
+
+// // для положительных ответов вызываются оба типа обработчиков
+// // для отрицательных - только второго типа
+// ask("Вопрос?", () => alert('Вы ответили да'), result => alert(result));
+
+
+
+
+
+
+
+
+// // сделать информацию о текущем пользователе глобальной, для предоставления доступа всем скриптам
+// window.currentUser = {
+//   name: "John"
+// };
+
+// // где угодно в коде
+// alert(currentUser.name); // John
+
+// // или, если у нас есть локальная переменная с именем "currentUser",
+// // получим её из window явно (безопасно!)
+// alert(window.currentUser.name); // John
+
+
+// alert(globalThis.currentUser.name); // John
+
+
+
+
+
+// function f() {
+//   let value = Math.random();
+
+//   return function() { alert(value); };
+// }
+
+// // три функции в массиве, каждая из них ссылается на лексическое окружение
+// // из соответствующего вызова f()
+// let arr = [f(), f(), f()];
+
+// alert (arr[0]());
+// alert (arr[1]());
+// alert (arr[2]());
+
+
+
+
+// function makeCounter() {
+//   let count = 0;
+//   alert (count);
+//   return function() {
+//     return count++; // есть доступ к внешней переменной "count"
+//   };
+  
+// }
+
+// let counter = makeCounter();
+
+// alert( counter() ); // 0
+// alert( counter() ); // 1
+// alert( counter() ); // 2
+
+
+
+// function hello(a, b, c) {
+// alert (a);
+// alert (b);
+// alert (c);
+// }
+
+// let str = 'Hello';
+
+// hello(...str);
+
+
+
+
+// function f() {
+//   let showArg = () => alert(arguments[0]);
+//   showArg(2);
+// }
+
+// f(1); // 1
+
+
+
+
+
+
+// let list = {
+//   value: 1,
+//   next: {
+//     value: 2,
+//     next: {
+//       value: 3,
+//       next: {
+//         value: 4,
+//         next: null
+//       }
+//     }
+//   }
+// };
+
+// let b = 5;
+// b = 5 + b;
+// alert (b);
+
+// alert (list);
+// alert (list.value);
+// alert (list.next.value);
+// alert (list.next.next.value);
+// alert (list.next.next.next.value);
+// alert (list.next.next.next.next?.value);
+
+// list = { value: 'Hello Object', next: list};
+// alert ('Добавил переменную в начало');
+
+// alert (list);
+// alert (list.value);
+// alert (list.next.value);
+// alert (list.next.next.value);
+// alert (list.next.next.next.value);
+// alert (list.next.next.next.next?.value);
+
+// alert ('Конец');
+// console.log (list);
+
+
+
+
+
+// let room = {
+//   number: 23
+// };
+
+// let meetup = {
+//   title: "Conference",
+//   participants: [{name: "John"}, {name: "Alice"}],
+//   place: room // meetup ссылается на room
+// };
+
+// room.occupiedBy = meetup; // room ссылается на meetup
+
+// alert( JSON.stringify(meetup, ['title', 'participants']) );
+// console.log( JSON.stringify(meetup) );
+// // {"title":"Conference","participants":[{},{}]}
+
+
+
+
+
+// let room = {
+//   number: 23
+// };
+
+// let meetup = {
+//   title: "Conference",
+//   participants: ["john", "ann"]
+// };
+
+// meetup.place = room;       // meetup ссылается на room
+// room.occupiedBy = meetup; // room ссылается на meetup
+
+// JSON.stringify(meetup); // Ошибка: Преобразование цикличной структуры в JSON
+
+
+
+
+
+// let user = {
+//   name: "John",
+//   years: 30
+// };
+
+// let {name, years: age, isAdmin = true} = user;
+
+// alert (name);
+// alert (age);
+// alert (isAdmin);
+
+// alert (user);
+// console.log(user);
+
+
+
+
+
+
+
+      // // мы передаём объект в функцию
+      // let options = {
+      //   title: "My menu",
+      //   items: ["Item1", "Item2"]
+      // };
+
+      // let hello = {
+      //   title: 'Test',
+        
+      //   items: ['21','321321']
+      // };
+
+      // // ...и она немедленно извлекает свойства в переменные
+      // function showMenu({title = "Untitled", width = 200, height = 100, items = []}) {
+      //   // title, items – взято из options,
+      //   // width, height – используются значения по умолчанию
+      //   alert( `${title} ${width} ${height}` ); // My Menu 200 100
+      //   alert( items ); // Item1, Item2
+      // }
+
+      // showMenu(options);
+
+
+
+
+        // let n = +prompt("Введите четырёхзнаное число","1111-9999"); //Возьмём для удобства число 6213 
+        // a=n%1000; //213 
+        // b=a%100; //13 
+        // c=b%10; //3 - 4 число 
+        // d=(b-c)/10; //(13-3)/10=1 - 3 число 
+        // e=(a-b)/100; //(213-13)/100=2 - 2 число 
+        // g=(n-a)/1000; //(6213-213)/1000=6 - 1 число 
+        // n1=String(g); 
+        // n2=String(e); 
+        // n3=String(d); 
+        // n4=String(c); 
+        // n5=n4+n3+n2+n1; 
+        // alert(n5);
+
+        // let n = +prompt("Введите четырёхзнаное число","1111-9999"); // Димина прога
+        // a=n%1000; 
+        // b=(n-a)/1000; 
+        // c=a%100; 
+        // d=(a-c)/100 
+        // e=c%10 
+        // g=(c-e)/10 
+        // j=g/10 
+        // n1=String(b); 
+        // n2=String(d); 
+        // n3=String(j); 
+        // n4=String(e); 
+        // n5=n4+n3+n2+n1; 
+        // alert(n5);
+
+
+
+
+
+
+
+
+
+        // let a;
+        // let b;
+        // let c;
+        // let d;
+
+        // let vvodChisla=+prompt("vvedi chislo","1000-9999"); // chislo 1234
+
+        // a=vvodChisla%10; // chislo 4
+        // if (a==0) b=String(a);
+        // b=((vvodChisla%100)/10) | 0; // chislo 3
+        // c=((vvodChisla%1000)/100) | 0; // chislo 2
+        // d=(vvodChisla/1000) | 0;
+        // alert("Tvoe Chislo Naoborot: " +a+b+c+d);
+
+
+        // let zapros=+prompt("Vvedi luboe chislo",);
+        // let chisloOtvet="";
+        // let ch1;
+        // let test="test";
+        // let proverka;
+        // let i = 10;
+        // let koef=1;
+        // poiskChisla: for(i;;i*=10){ // chislo 12345, i=1,10,100,1000,10000
+        //     if (proverka<1) break poiskChisla;
+        //     ch1=zapros%i; // 5 , 45 , 345, 2345, 12345
+        //     if (ch1>9){
+        //         ch1=(ch1/koef) | 0;
+        //         chisloOtvet=chisloOtvet+ch1;
+        //     } else {
+        //         chisloOtvet+=ch1;
+        //     }
+        //     koef=koef*10;
+        //     proverka=zapros/i;            
+        // }
+        // alert(chisloOtvet);
+
+
+
+
+
+
+
+
+
+        // let ten = 10;
+        // let sto = 100;
+        // let tysacha = 1000;
+
+        // let chisloUser = +prompt("Vvedi chislo dlya perevorota",123);
+        // let counter=0;
+        // let counter2=0;
+        // let otvet=0;
+
+        // counter=chisloUser%10; // проверка последнего числа и помещение его в начало
+        // otvet=counter*10;
+
+        // counter=chisloUser%100; // находим второе с конца число и ставим его вторым
+        // counter2=counter/10;
+        // otvet=(otvet+(~~counter2))*10;
+
+        // counter=chisloUser/100;
+        // otvet=otvet+(~~counter);
+        // alert(`Твое число наоборот ${otvet}`);
+
+
+
+
+        // if (((chisloUser%ten)>0)&&(chisloUser%ten)<10) { // находим последнее число
+        //         counter=(chisloUser%ten);
+        //         otvet=counter*10; // ставит последнее число первым и умножаем на 10
+        //         alert(otvet); 
+        //     } else if ((((chisloUser/ten)%sto)>0)&&((chisloUser/ten)%sto)<10) {
+        //         counter=(chisloUser%sto);
+        //         otvet = (otvet+counter)*10; // ставит последнее число первым и умножаем на 10
+        //         alert(otvet);
+        //     } else if (((chisloUser/sto)>0)&&(chisloUser/sto)<10) {
+        //         counter=(chisloUser/sto);
+        //         otvet=otvet+counter; // ставит последнее число первым и умножаем на 10
+        //         alert(otvet);
+        //     }
+        //     alert("Konec");
+
+
+
+
+        // for (let i=10;;i*=10) {
+        //     if (((chisloUser%i)>0)&&(chisloUser%i)<10) {
+        //         counter=(chisloUser%i);
+        //         otvet=counter*10;
+        //         alert(otvet);
+        //     } else continue;
+        // }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        // function (getValue) {
+        //     +prompt("Vvedi chislo kotoroe nuzno perevernut", 228)
+        // }
+
+        let answer=prompt("v kakom godu rodilsa?",)
+        if (answer == 1996) alert ("Верно!")
+        if (answer < 1996) alert ("нет!")
+        if (answer > 1996) alert ("нет")
+
+
+        function dolbaeb() {
+            alert ("код грозится меня прирезать");
+        }
+        
+        let schetchik = 0;
+
+        for (let couter=0; ; couter++){
+            let getQuestion = prompt("Вилкой в глаз или в жопу раз?",);
+            if (getQuestion=="вилкой в глаз") {
+                alert("Ну пизда тебе");
+                break;
+            } else if (getQuestion=="в жопу раз") {
+                alert("наклоняйся, сладкий");
+                break;
+            } else if ((getQuestion != "вилкой в глаз") && (getQuestion != "в жопу раз")) {
+                // alert("отвечай на вопрос падла");
+                schetchik++;
+                if (schetchik==3){
+                    break;
+                }
+            }
+        }
+        
+        if (schetchik==3) {
+            dolbaeb();
+        } else {
+            alert("Cicl zakonchilsa");
+        }
+        
+        
+        
+        // function showPrimes(age) {
+
+        //     for (let i = 2; i < age; i++) {
+        //     if (!isPrime(i)) continue;
+
+        //     alert(i);  // простое
+        //     }
+        // }
+
+        // function isPrime(age) {
+        //     for (let i = 2; i < age; i++) {
+        //     if ( age % i == 0) return false;
+        //     }
+        // return true;
+        // }
+        
+        // showPrimes(12);
+
+
+        // for (let j = 2; j < i; j++) {
+        //     if (i % j == 0) continue nextPrime;
+        // }
+        // alert( i ); // простое
+        // }
+        // }
+        // showPrimes(3);
+
+
+        // function sum(a, b) {
+        // return a + b;
+        // alert("Hello");
+        // }
+
+        // let result = sum(1, 2);
+        // alert( result ); // 3
+        
+        
+        
+        
+        // let a=2;
+        // let c=3;
+        // function showMessage(from, text) { // аргументы: from, text
+        //     alert(from + text);
+        // }
+        // showMessage('Аня', 'Привет!'); // Аня: Привет! (*)
+        // showMessage('Аня', "Как дела?"); // Аня: Как дела? (**)
+        // showMessage(a, c); // Аня: Как дела? (**)
+
+        // function showMessage(from, text) {
+
+        // from = '*' + from + '*'; // немного украсим "from"
+
+        // alert( from + ': ' + text );
+        // }
+
+        // let from = "Аня";
+
+        // showMessage(from, "Привет"); // *Аня*: Привет
+
+        // // значение "from" осталось прежним, функция изменила значение локальной переменной
+        // alert( from ); // Аня
+    
+    </script>
+  </body>
+</html>
